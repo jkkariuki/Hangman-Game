@@ -1,0 +1,40 @@
+body {
+
+    background: url("http://k32.kn3.net/taringa/1/0/3/5/4/5/30/rasta1997/3C4.jpg?468") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+}
+
+#game {
+    margin-top: 200px;
+    
+    color: white;
+}
+
+span {
+    margin: 0 auto;
+    font-size: 20px;
+    padding: 20px;
+    color: red;
+}
+
+#wordSpace {
+    border: 20px solid  white;
+    display: inline-block;
+    color: white;
+    margin-right: 1500px;
+
+}
+
+#stats {
+	height: 200px;
+	width: 200px;
+    border: 20px solid white;
+    margin-top: 50px;
+    display: inline-block;
+    
+    color: white;
+}
