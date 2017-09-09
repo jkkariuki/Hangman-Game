@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Hangman</title>
+    <link href="https://fonts.googleapis.com/css?family=Amiri|BenchNine|Cinzel|Josefin+Slab|Julius+Sans+One|Philosopher|Vidaloka" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
@@ -10,9 +11,15 @@
 <body>
     <div id="game">
         <p>Let's play NBA hangman. Guess a letter to start . </p>
+        <p>The answer may be a current or retired nba superstar.</p>
+        <p>Last names/Nicknames/First names...Life's not fair just play</p>
+        <h6>The finest print: Answers may repeat frequently...I'm working on it, ok?</h6>
     </div>
+
     <div id="wordSpace">
     </div>
+    <img id="image"/>
+    
     <div id="stats">
     </div>
     <div id="gameOver">
@@ -30,8 +37,9 @@
             "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t",
             "u", "v", "w", "x", "y", "z"
         ];
-
+            playWord();
         function playWord() {
+            
 
             var words = ["jordan", "kobe", "magic", "wade", "lebron", "shaq", "iverson", "mcgrady", "durant", ];
             var computerChoice = words[(Math.floor(Math.random() * (9)))]; //Math.floor(Math.random() * (max - min + 1)) + min
@@ -44,13 +52,17 @@
 
 
             function endGame() {
-                document.getElementById('gameOver').innerHTML = "GameOver";
+                
+                clearCurrentWord();
                 guessesRemaining = 12;
                 lettersGuessed = [];
                 points = 0;
-                wins = 0;
-                losses = 0;
+                losses++
                 correctGuesses = []
+                setTimeout(alert("you lose"), 500); 
+                alert("play again");
+                playWord();
+
 
             }
 
@@ -69,6 +81,8 @@
                     item.parentNode.removeChild(item);
                 }
             }
+
+            
 
             function blankSpaces() {
                 for (var i = 0; i < letterSpace.length; i++) {
@@ -102,7 +116,7 @@
                     points++;
                     document.getElementById("position" + currentWordArray.indexOf(userChoice)).innerHTML = event.key;
 
-                    //if user chooses incorrectly the letter is placed in the lettersGuessed array and the loses loses one guess.
+                    //if user chooses incorrectly the letter is placed in the lettersGuessed array and the user loses one guess.
                 } else if (lettersGuessed.indexOf(userChoice) === -1) {
                     lettersGuessed.push(userChoice);
                     guessesRemaining--;
@@ -119,17 +133,8 @@
                 }
                 //This alerts the user that they have lost the game. User failed to earn all possible points in within alloted # of guesses.
                 if (guessesRemaining === 0) {
+                    endGame();                    
                     console.log(losses);
-                    setTimeout(alert("you lose"), 500);
-                    endGame()
-                    setTimeout(clearCurrentWord, 200);
-                    alert("play again");
-                    setTimeout(playGame, 500);
-                    document.getElementById("gameOver").innerHTML = "";
-                    losses++;
-                    playWord();
-
-
                 }
 
 
@@ -144,7 +149,6 @@
 
             }
         }
-        playWord();
     }
     playGame();
     </script>
