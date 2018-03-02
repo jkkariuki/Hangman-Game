@@ -1,6 +1,6 @@
 NBA HANGMAN
 
-Show your knowledge of the game by guessing the hidden names of NBA legengs. 
+Show your knowledge of the game by guessing the hidden names of NBA legends. 
 
 Live Link https://jkkariuki.github.io/NBA-Hangman/
 
